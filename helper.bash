@@ -50,5 +50,11 @@ function ssh_exe()
 {
 	local host="${1}"
 	local cmd="${2}"
+	if [ ! -z "${3+x}" ]; then
+		local not_display_cmd=`to_true "${3}"`
+		if [ "${not_display_cmd}" != 'true' ]; then
+			echo + ssh -i "${pri_key}" -o BatchMode=yes "${user}"@"${host}" ${cmd}
+		fi
+	fi
 	ssh -i "${pri_key}" -o BatchMode=yes "${user}"@"${host}" ${cmd} </dev/null
 }
