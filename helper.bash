@@ -1,7 +1,7 @@
 function to_true()
 {
 	local val="${1}"
-	local trues=('true' 't' 'yes' 'y' 'on' '1')
+	local trues=('true' 't' 'yes' 'y' 'on' '1' 'True' 'T' 'Yes' 'Y' 'On' 'TRUE' 'YES' 'ON')
 	for t in ${trues[@]}; do
 		if [ "${t}" == "${val}" ]; then
 			echo 'true'
@@ -14,7 +14,7 @@ function to_true()
 function to_false()
 {
 	local val="${1}"
-	local trues=('false' 'f' 'no' 'n' 'off' '0')
+	local trues=('false' 'f' 'no' 'n' 'off' '0' 'False' 'F' 'No' 'N' 'Off' 'FALSE' 'NO' 'OFF')
 	for t in ${trues[@]}; do
 		if [ "${t}" == "${val}" ]; then
 			echo 'false'
